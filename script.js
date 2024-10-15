@@ -28,8 +28,8 @@ function filterTable() {
     const input = document.getElementById('searchInput');
     const filter = input.value.toLowerCase();
 
-    if (filter === "") {
-        // Если строка поиска пустая, обнуляем filteredPosts
+    if (filter.length < 3) {
+        // Если строка поиска меньше трех символов, обнуляем filteredPosts
         window.filteredPosts = window.posts;
     } else {
         window.filteredPosts = window.posts.filter(post =>
