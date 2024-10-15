@@ -24,7 +24,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    width: 800px;
     margin: 20px;
     z-index: 1;
 }
@@ -74,5 +74,9 @@ th:hover {
 }
 
 #noMatch {
-    color: red;
+    margin-top: 30%;
+    color: white;
+    font-weight: 700;
+    font-size: 50px;
+    text-align: center;
 }
