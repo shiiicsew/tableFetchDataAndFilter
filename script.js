@@ -28,12 +28,16 @@ function filterTable() {
     const input = document.getElementById('searchInput');
     const filter = input.value.toLowerCase();
 
-    window.filteredPosts = window.posts.filter(post =>
-        post.title.toLowerCase().includes(filter) || post.body.toLowerCase().includes(filter)
-    );
+    if (filter === "") {
+        // Если строка поиска пустая, обнуляем filteredPosts
+        window.filteredPosts = window.posts;
+    } else {
+        window.filteredPosts = window.posts.filter(post =>
+            post.title.toLowerCase().includes(filter) || post.body.toLowerCase().includes(filter)
+        );
+    }
 
     displayPosts(window.filteredPosts);
-
     document.getElementById('noMatch').style.display = window.filteredPosts.length === 0 ? 'block' : 'none';
 }
 
@@ -54,18 +58,12 @@ function sortTable(columnIndex) {
     });
 
     displayPosts(sortedPosts);
-
     sortOrder = !sortOrder;
 }
 
 // Обработчик событий для поля ввода поиска
 document.getElementById('searchInput').addEventListener('input', () => {
-    if (document.getElementById('searchInput').value.length >= 3) {
-        filterTable();
-    } else {
-        displayPosts(window.posts);
-        document.getElementById('noMatch').style.display = 'none';
-    }
+    filterTable();
 });
 
 document.querySelectorAll('th').forEach((header, index) => {
