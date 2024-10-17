@@ -46,6 +46,7 @@ input:focus {
 
 table {
     width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
     background: white;
     border-radius: 30px;
@@ -53,6 +54,16 @@ table {
     -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.5);
     box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.5);
     overflow: hidden;
+}
+
+table tr th:nth-child(1) {
+    width: 10%;
+    text-align: center;
+}
+
+table td:nth-child(1) {
+    font-weight: 700;
+    text-align: center;
 }
 
 th,
